@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
+    version="6.0.1" timestamp="2018-03-01T20:27:11.651">
+<file name="F:\Project\roma_m\lab3\maven1\src\main\java\ua\lviv\iot\par\party\party\HolidayEvent.java">
+<violation beginline="17" endline="17" begincolumn="42" endcolumn="54" rule="UnusedFormalParameter" ruleset="Best Practices" package="ua.lviv.iot.par.party.party" class="HolidayEvent" method="HolidayEvent" variable="amounOfEvents" externalInfoUrl="https://pmd.github.io/pmd-6.0.1/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
+Avoid unused constructor parameters such as 'amounOfEvents'.
+</violation>
+</file>
+<file name="F:\Project\roma_m\lab3\maven1\src\main\java\ua\lviv\iot\par\party\party\Workshop.java">
+<violation beginline="24" endline="24" begincolumn="44" endcolumn="50" rule="UnusedFormalParameter" ruleset="Best Practices" package="ua.lviv.iot.par.party.party" class="Workshop" method="Workshop" variable="diametr" externalInfoUrl="https://pmd.github.io/pmd-6.0.1/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
+Avoid unused constructor parameters such as 'diametr'.
+</violation>
+</file>
+</pmd>
