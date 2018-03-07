@@ -22,6 +22,9 @@ public class HolidayEvent {
 
     }
 
+    public HolidayEvent() {
+    }
+
     public final void addParty(final Party addParty) {
 
         partyList.add(addParty);

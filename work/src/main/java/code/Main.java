@@ -9,7 +9,7 @@ import java.util.List;
 public class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         HolidayEvent holidayEvent = new HolidayEvent("Boston", 4);
 
@@ -31,7 +31,7 @@ public class Main {
         holidayEvent.addParty(batut);
         holidayEvent.sortPartyByPrice(holidayEvent.getPartyList());
         for (Party party : holidayEvent.getPartyList()) {
-            System.out.println(party.getorg_name() + " is cost  "
+            System.out.println(party.getorgName() + " is cost  "
                     + party.getPrice() + " dollars and duration is "
                     + party.getHours() + " hours " + party.getType() + " "
                     + party.getaddress() + " "

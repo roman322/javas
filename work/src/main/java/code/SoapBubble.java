@@ -11,9 +11,9 @@ package code;
  */
 public class SoapBubble extends Party {
     private double length;
-	 SoapBubble(final PartyType partyType,
-                final PartyLocation partyLocation,
-					  final int price,
+    SoapBubble(final PartyType partyType,
+			   final PartyLocation partyLocation,
+			   final int price,
 			final String material, final double hours,
 				final String manfucturer, final int amount) {
 		super(partyType, partyLocation, price,

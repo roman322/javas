@@ -43,7 +43,7 @@ public class Party {
         return price;
     }
 
-    public final String getorg_name() {
+    public final String getorgName() {
         return orgName;
     }
 
