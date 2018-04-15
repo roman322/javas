@@ -1,0 +1,68 @@
+$upload_path = "uploads/" . $_FILES["file"]["name"];
+$url = "http://bettercity.online/$upload_path";
+
+$image = $_FILES["file"]["name"];
+$uploadedfile = $_FILES['file']['tmp_name'];
+$image_type =$_FILES["file"]["type"];
+
+$ftp_server = "ftp.bettercity.online";
+$conn_id = ftp_connect($ftp_server) or die("Couldn't connect to $ftp_server");
+$user = "u307827040";
+$pass = "9Tvfpf545A4HWBQ1rT";
+
+    if (ftp_login($conn_id, $user, $pass))
+    {
+    if ($_FILES["file"]["error"] > 0)
+    {
+    echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
+    }
+    else
+    {
+         if($image_type=='image/png' || $image_type=='image/x-png')
+          {
+           $src = imagecreatefrompng($uploadedfile);
+          }
+         elseif($image_type=='image/gif')
+          {
+           $src = imagecreatefromgif($uploadedfile);
+          }
+         elseif($image_type=='image/jpeg' || $image_type=='image/jpg' || $image_type == 'image/pjpeg')
+          {
+           $src = imagecreatefromjpeg($uploadedfile);
+          }
+
+         list($width,$height)=getimagesize($uploadedfile);
+
+         $new_width=768;
+         $new_height=500;
+
+         $image_p=imagecreatetruecolor($new_width,$new_height);
+
+         imagealphablending($image_p, false);
+         imagesavealpha($image_p, true);
+
+         imagecopyresampled($image_p,$src,0,0,0,0,$new_width,$new_height,$width,$height);
+         if(move_uploaded_file($_FILES["file"]["tmp_name"], $upload_path))
+         {
+                    if ($resp['status'] == 'OK') {
+                   $latitude = $resp['results'][0]['geometry']['location']['lat'];
+                   $longitude = $resp['results'][0]['geometry']['location']['lng'];
+
+                    $sql = "INSERT INTO problem_data(username, name, description, mediafile, district_id, category_id, location, latitude, longitude, rating, counter, general_rating, status_id, upl_date) values('$username','$name','$description','$url','$district_id','$category_id','$location','$latitude','$longitude', 0.0, 0, 0.0, 1, '$date')";
+
+          if(mysqli_query($con, $sql))
+            {
+            if($image_type=='image/png' || $image_type=='image/x-png'){
+              imagepng($image_p,$upload_path,9) ;
+              }
+            else {
+              imagejpeg($image_p,$upload_path,100);
+              }
+            }
+
+          echo 'Problem uploaded';
+          imagedestroy($image_p);
+                    }
+         }
+    }
+    }
