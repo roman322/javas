@@ -14,20 +14,19 @@ public class Batut extends Party {
     public Batut(final PartyType partyLocation,
                  final PartyLocation name, final int price,
                  final String material, final double hours,
-                 final String manfucturer, final int amount) {
+                 final String manfucturer, final int amount,final Integer id) {
         super(partyLocation, name, price, material,
-                hours, manfucturer, amount);
+                hours, manfucturer, amount,id);
         this.diametr = diametr;
     }
 
-    public final double getdiametr() {
-        return diametr;
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + "diameter";
     }
 
-    public final void setdiametr(final double diametr) {
-        this.diametr = diametr;
+    @Override
+    public String toCSV() {
+        return super.toCSV() + diametr;
     }
-
 }
-
-

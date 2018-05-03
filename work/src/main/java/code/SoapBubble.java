@@ -15,10 +15,20 @@ public class SoapBubble extends Party {
 			   final PartyLocation partyLocation,
 			   final int price,
 			final String material, final double hours,
-				final String manfucturer, final int amount) {
+				final String manfucturer, final int amount,final Integer id) {
 		super(partyType, partyLocation, price,
-				material, hours, manfucturer, amount);
+				material, hours, manfucturer, amount,id);
 		this.length = length;
+	}
+
+	@Override
+	public String getHeaders() {
+		return super.getHeaders()+"length";
+	}
+
+	@Override
+	public String toCSV() {
+		return super.toCSV()+length;
 	}
 }
 

@@ -17,17 +17,21 @@ public class Animator  extends Party {
 					final String material,
 					final double hours,
 					final String manfucturer,
-					final int amount) {
+					final int amount,
+	 				final Integer id) {
 		super(partyType, partyLocation, price,
-				material, hours, manfucturer, amount);
+				material, hours, manfucturer, amount, id);
 		this.length = length;
+
 	}
-	public final double getLength() {
-		return length;
+
+	@Override
+	public String getHeaders() {
+		return super.getHeaders() + "length";
 	}
-	public final void setLength(final double length) {
-		this.length = length;
+
+	@Override
+	public String toCSV() {
+		return super.toCSV() + length;
 	}
 }
-
-
